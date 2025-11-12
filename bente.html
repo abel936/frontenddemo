@@ -1,0 +1,19 @@
+hoi
+<script>
+    function checkitout(){
+        console.log("check");
+        fetch("http://127.0.0.1:5000/bente")
+        .then( r => r.json() )
+        .then( d => vervolg(d))
+        
+    }
+    function vervolg(data){
+        for(let x =0; x< data.length;x++){
+            document.getElementById("uitkomst").innerHTML += `
+                <div>${data[x].naam}</div>
+            `
+        }
+    }
+</script>
+<button onclick="checkitout()">klik hier</button>
+<div id="uitkomst"></div>
