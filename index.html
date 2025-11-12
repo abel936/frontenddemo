@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Home page</title>
-</head>
-<body>
 
-</body>
+hoi
+<script>
+    function checkitout(){
+        console.log("check");
+        fetch("http://127.0.0.1:5000/abel")
+        .then( r => r.json()) // callback: wordt als laatste uitgevoerd
+        .then( d => vervolg(d))
+    }
+
+    function vervolg(data){
+        let eindstring = "";
+        for(let x =0; x< data.length;x++){
+            eindstring += `
+                <div>${data[x].a}</div>
+            `
+        }
+    document.getElementById("uitkomst").innerHTML = eindstring;
+    }
+</script>
+<button onclick="checkitout()">klik hier</button>
+
+
+<div id="uitkomst"></div>
+
 </html>
